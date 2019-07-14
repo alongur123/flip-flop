@@ -1,0 +1,14 @@
+h2 {
+  text-shadow: 2px 2px #000000;
+}
+
+@font-face {
+  font-family: myFirstFont;
+  src: url("https://mdn.mozillademos.org/files/2468/VeraSeBd.ttf");
+}
+
+#div1 {
+  font-family: myFirstFont;
+
+  column-count: 3;
+}

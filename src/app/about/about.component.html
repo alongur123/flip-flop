@@ -1,1 +1,17 @@
 <p>about works!</p>
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<canvas id="myCanvas" width="200" height="100">
+    Your browser does not support the HTML5 canvas tag.
+</canvas>
+
+<script>
+    var c = document.getElementById("myCanvas");
+    var ctx = c.getContext("2d");
+    ctx.font = "30px Arial";
+    ctx.fillText("Flip-flop", 10, 50);
+</script>
+<aside>
+    <div id="div1">
+        <h4> {{message}}</h4>
+     </div>
+</aside>
