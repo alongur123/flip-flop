@@ -1,13 +1,20 @@
 <!--The content below is only a placeholder and can be replaced.-->
-<div style="text-align:center">
-  <button mat-button>About</button>
-  <button mat-button>Contact</button>
-  <button mat-button>Add Flight</button>
-  <button mat-button>Get Flight</button>
-  <button mat-button>Ticket History</button>
-  <button mat-button>User table</button>
-  <button mat-button>all complains</button>
-  <button mat-button>complain</button>
-  <app-home></app-home>
-  <app-about></app-about>
-<router-outlet></router-outlet>
+<div class="navbar-collapse">
+  <nav style="text-align:center; height: 40px;" class="nav navbar-dark bg-dark">
+    <a class="navbar-brand" [routerLink]="['']">Flip-flop</a>
+    <a class="Mynavbar" [routerLink]="['/about']">About</a>
+    <a class="Mynavbar" [routerLink]="['/contact']">Contact</a>
+    <a class="Mynavbar" [routerLink]="['/newFlights']">Add Flight</a>
+    <a class="Mynavbar" [routerLink]="['/flight']">Get Flight</a>
+    <a class="Mynavbar" [routerLink]="['/about']">Ticket History</a>
+    <a class="Mynavbar" [routerLink]="['/about']">User table</a>
+    <a class="Mynavbar" [routerLink]="['/about']">all complains</a>
+    <a class="Mynavbar" [routerLink]="['/about']">complain</a>
+  </nav>
+  </div>
+  <!-- <app-new-flights></app-new-flights> -->
+  <!-- <app-home></app-home> -->
+  <!-- <app-about></app-about> -->
+  <router-outlet></router-outlet>
+  <hr>
+<p>© 2018 - flip_flop</p>

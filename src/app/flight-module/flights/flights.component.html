@@ -1,1 +1,16 @@
-<p>flights works!</p>
+<div class="row">
+  <div *ngFor="let item of flights" class="col-sm-4 header">
+    <div class="flip-card">
+      <div class="flip-card-inner">
+        <div class="flip-card-front">
+          <h1>{{item.target.country.name}}</h1>
+          <h3>{{item.target.cityName}}</h3>
+          <h1 *ngIf="item.IsSold" class="see" >Sold!</h1>
+        </div>
+        <div class="flip-card-back">
+          {{item.FlightNumber}}
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

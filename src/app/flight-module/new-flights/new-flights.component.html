@@ -1,1 +1,35 @@
-<p>new-flights works!</p>
+<div class="container">
+  <h1 class="header">Add Flight</h1>
+  <form [formGroup]="flightForm" (ngSubmit)="onSubmit()">
+    <mat-form-field>
+      <mat-select placeholder="Target" [(ngModel)]="flight.target" formControlName="target">
+        <mat-option *ngFor="let item of DeparmentKeys()" value="{{item}}">{{item}}</mat-option>
+      </mat-select>
+    </mat-form-field>
+    <br>
+    <mat-form-field>
+      <input matInput placeholder="Flight number" [(ngModel)]="flight.FlightNumber" formControlName="FlightNumber">
+    </mat-form-field>
+    <br>
+    <mat-form-field>
+      <input matInput placeholder="cancelFee" [(ngModel)]="flight.cancelFee" formControlName="cancelFee">
+    </mat-form-field>
+    <br>
+    <mat-form-field>
+      <input matInput placeholder="price" [(ngModel)]="flight.Price" formControlName="Price">
+    </mat-form-field>
+    <br>
+    <mat-checkbox [(ngModel)]="flight.Food" formControlName="Food" color="primary">Food</mat-checkbox>
+    <br>
+    <mat-checkbox [(ngModel)]="flight.Baggage" formControlName="Baggage" color="primary">Baggage</mat-checkbox>
+    <br>
+    <mat-form-field>
+      <mat-select placeholder="department" [(ngModel)]="flight.department" formControlName="department">
+        <mat-option *ngFor="let item of DeparmentKeys()" value="{{item}}">{{item}}</mat-option>
+      </mat-select>
+    </mat-form-field>
+    <br>
+    <button type="submit" class="btn btn-success">Submit</button>
+    <button (click)="onReset()" style="margin-left: 10px;" class="btn btn-danger">Reset</button>
+  </form>
+</div>
