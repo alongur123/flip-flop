@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { Flight } from '../../../models/flight';
 import { Target } from 'src/models/target';
 import { Country } from 'src/models/country';
+import { FlightService } from '../flight.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-flights',
@@ -10,7 +12,7 @@ import { Country } from 'src/models/country';
 })
 export class FlightsComponent implements OnInit {
   flights: Flight[] = [];
-  constructor() { }
+  constructor(private flightService: FlightService, private router: Router) { }
 
   ngOnInit() {
     let a = new Flight({
@@ -25,5 +27,8 @@ export class FlightsComponent implements OnInit {
     this.flights.push(a);
     this.flights.push(a);
   }
-
+  clicked(flight) {
+    this.flightService.currentFlight = flight;
+    this.router.navigateByUrl('/flight');
+  }
 }

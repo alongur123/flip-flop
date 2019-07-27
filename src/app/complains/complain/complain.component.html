@@ -1,0 +1,24 @@
+<div>
+  <section>
+  <table class="table">
+    <thead>
+    <tr>
+      <th>status</th>
+      <th>userName</th>
+      <th>comments</th>
+      <th>content</th>      
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let complain of complains">
+      <td>{{complain.status}}</td>
+      <td>{{complain.user.firstName}} {{complain.user.lastName}}</td>
+      <td>{{complain.comment}}</td>
+      <td>{{complain.content}}</td>
+      <td><button (click)="edit(complain)">edit</button> | <button (click)="delete(complain)">delete</button></td>
+    </tr>
+  </tbody>
+  </table>
+</section>
+</div>

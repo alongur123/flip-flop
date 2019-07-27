@@ -1,0 +1,39 @@
+<div class="main">
+<h2>Details</h2>
+<div>
+  <h4>PlainTickets</h4>
+  <hr />
+  <div>
+    Target: {{flight.target.cityName}}
+    <br>
+    date: {{flight.date}}
+    <br>
+    Flight number: {{flight.FlightNumber}}
+    <br>
+    owner: {{flight.user.firstName}} {{flight.user.lastName}}
+    <br>
+    Cancle fee: {{flight.cancelFee}}
+    <br>
+    Food: {{flight.Food}}
+    <br>
+    Baggage: {{flight.Baggage}}
+    <br>
+    department: {{flight.department}}
+    <br>
+    Price: {{flight.Price}}
+  </div>
+</div>
+<div>
+  <!-- <form>
+        <input type="hidden" asp-for="Key" />
+        <input type="hidden" asp-for="OwnerId" />
+        <input type="submit" value="Buy" class="btn btn-default" />
+    </form>    
+    <a asp-action="Edit" asp-route-id="@Model.Key">Edit</a> | -->
+    <br>
+    <button>Buy</button>
+    <br>
+    <br>
+  <a [routerLink]="['/flights']"><button>Back to List</button></a>
+</div>
+</div>

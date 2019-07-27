@@ -1,20 +1,19 @@
 <!--The content below is only a placeholder and can be replaced.-->
-<div class="navbar-collapse">
-  <nav style="text-align:center; height: 40px;" class="nav navbar-dark bg-dark">
+<div class="navbar-collapse bg-dark">
+  <nav style="text-align:center; height: 40px; margin-left: 10px;" class="nav navbar-dark ">
     <a class="navbar-brand" [routerLink]="['']">Flip-flop</a>
     <a class="Mynavbar" [routerLink]="['/about']">About</a>
     <a class="Mynavbar" [routerLink]="['/contact']">Contact</a>
     <a class="Mynavbar" [routerLink]="['/newFlights']">Add Flight</a>
-    <a class="Mynavbar" [routerLink]="['/flight']">Get Flight</a>
+    <a class="Mynavbar" [routerLink]="['/flights']">Get Flight</a>
     <a class="Mynavbar" [routerLink]="['/about']">Ticket History</a>
     <a class="Mynavbar" [routerLink]="['/about']">User table</a>
-    <a class="Mynavbar" [routerLink]="['/about']">all complains</a>
-    <a class="Mynavbar" [routerLink]="['/about']">complain</a>
+    <a class="Mynavbar" [routerLink]="['/complains']">all complains</a>
+    <a class="Mynavbar" [routerLink]="['/AddComplain']">complain</a>
+    <a class="Mynavbar" [routerLink]="['/register']">register</a>
+    <a class="Mynavbar" [routerLink]="['/login']">logIn</a>
   </nav>
-  </div>
-  <!-- <app-new-flights></app-new-flights> -->
-  <!-- <app-home></app-home> -->
-  <!-- <app-about></app-about> -->
+  </div>  
   <router-outlet></router-outlet>
   <hr>
-<p>© 2018 - flip_flop</p>
+<p>© 2019 - flip_flop</p>

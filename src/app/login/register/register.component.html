@@ -1,0 +1,27 @@
+<div class="container">
+  <header>
+    <h1 class="header">Register</h1>
+  </header>
+  <hr>
+  <form [formGroup]="userForm" (ngSubmit)="onSubmit()" class="form-group">
+    <mat-form-field style="width: 60%;">
+      <input matInput class="form-control" type="text" placeholder="first name" [(ngModel)]="user.firstName"
+        formControlName="FirstName">
+    </mat-form-field>
+    <mat-form-field style="width: 60%;">
+      <input matInput class="form-control" type="text" placeholder="last name" [(ngModel)]="user.lastName"
+        formControlName="LastName">
+    </mat-form-field>
+    <mat-form-field style="width: 60%;">
+      <input matInput type="password" class="form-control" placeholder="password" [(ngModel)]="user.Password"
+        formControlName="Password">
+    </mat-form-field>
+    <mat-form-field style="width: 60%;">
+      <input matInput type="password" class="form-control" placeholder="Confirm password"
+        formControlName="ConfirmPassword">      
+    </mat-form-field>
+    <br>
+    <button type="submit" class="btn btn-success">save</button>
+    <button (click)="reset()" style="margin-left: 10px;" class="btn btn-danger">Reset</button>
+  </form>
+</div>

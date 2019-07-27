@@ -1,0 +1,24 @@
+<div class="container">
+    <header>
+      <h1 class="header">Log In</h1>
+    </header>
+    <hr>
+    <form [formGroup]="userForm" (ngSubmit)="onSubmit()" class="form-group">
+      <mat-form-field style="width: 60%;">
+        <input matInput class="form-control" type="text" placeholder="first name" [(ngModel)]="user.firstName"
+          formControlName="FirstName">
+      </mat-form-field>
+      <mat-form-field style="width: 60%;">
+        <input matInput class="form-control" type="text" placeholder="last name" [(ngModel)]="user.lastName"
+          formControlName="LastName">
+      </mat-form-field>
+      <mat-form-field style="width: 60%;">
+        <input matInput type="password" class="form-control" placeholder="password" [(ngModel)]="user.Password"
+          formControlName="Password">
+      </mat-form-field>    
+      <br>
+      <button type="submit" class="btn btn-success" style="margin-right: 20px">Log In</button>      
+      <a class="btn btn-primary" [routerLink]="['/register']">register</a>
+    </form>
+  </div>
+  

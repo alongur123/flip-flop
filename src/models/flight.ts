@@ -1,6 +1,7 @@
 import { Target } from './target';
 import { Department } from './department.enum';
 import * as moment from 'moment';
+import { User } from './user';
 
 export class Flight {
     _id: string;
@@ -13,6 +14,7 @@ export class Flight {
     Price: number;
     target: Target;
     IsSold: boolean;
+    user: User;
     constructor(flight: any) {
         this._id = flight._id || "";
         this.date = flight.date || moment().format("DD/MM/YYYY");
@@ -24,6 +26,7 @@ export class Flight {
         this.Price = flight.Price || 0;
         this.target = flight.target || new Target({});
         this.IsSold = flight.IsSold || false;
+        this.user = flight.user || new User({});
     }
 
 }

@@ -9,6 +9,8 @@ import { HomeComponent } from './home/home.component';
 import { AgmCoreModule } from '@agm/core';
 import { FlightModuleModule } from "./flight-module/flight-module.module";
 import { ContactComponent } from './contact/contact.component';
+import { ComplainModuleModule } from './complains/complainModule.module';
+import { LoginModuleModule } from './login/loginModule.module';
 
 @NgModule({
    declarations: [
@@ -25,7 +27,9 @@ import { ContactComponent } from './contact/contact.component';
       BrowserAnimationsModule,
       FlightModuleModule,
       MatCardModule,
-      MatCheckboxModule
+      MatCheckboxModule,
+      ComplainModuleModule,
+      LoginModuleModule
    ],
    providers: [],
    bootstrap: [AppComponent]

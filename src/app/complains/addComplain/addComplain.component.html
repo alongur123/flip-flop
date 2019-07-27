@@ -1,0 +1,13 @@
+<div class="container">
+  <header>
+    <h1 class="header">Add a complain</h1>
+  </header>
+  <form [formGroup]="complainForm" (ngSubmit)="onSubmit()" class="form-group">
+    <mat-form-field style="width: 60%;">
+      <input matInput class="form-control" type="text" placeholder="content" [(ngModel)]="complain.content"
+        formControlName="Content">
+    </mat-form-field>
+    <br>
+    <button type="submit" class="btn btn-success">save</button>
+  </form>
+</div>

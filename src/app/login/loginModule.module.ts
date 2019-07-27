@@ -1,18 +1,12 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { NewFlightsComponent } from './new-flights/new-flights.component';
-import { FlightsComponent } from './flights/flights.component';
+import { LoginComponent } from './login/login.component';
+import { RegisterComponent } from './register/register.component';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { MatFormFieldModule, MatOptionModule, MatSelectModule, MatInputModule, MatCardModule, MatCheckboxModule } from '@angular/material';
-import { FlightComponent } from './flight/flight.component';
 import { RouterModule } from '@angular/router';
 
-
 @NgModule({
-  declarations: [
-    NewFlightsComponent,
-    FlightsComponent,
-    FlightComponent],
   imports: [
     CommonModule,
     ReactiveFormsModule,
@@ -24,9 +18,7 @@ import { RouterModule } from '@angular/router';
     MatCardModule,
     MatCheckboxModule,
     RouterModule
-
   ],
-  exports: [NewFlightsComponent,
-    FlightsComponent]
+  declarations: [LoginComponent, RegisterComponent]
 })
-export class FlightModuleModule { }
+export class LoginModuleModule { }
