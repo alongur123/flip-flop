@@ -1,0 +1,10 @@
+module.exports.FLIGHT_TICKETS_COLLECTION_NAME = "filght_tickets";
+module.exports.HISTORY_COLLECTION_NAME = "history";
+module.exports.COUNTRIES_COLLECTION_NAME = "countries";
+module.exports.DESTINATION_COLLECTION_NAME = "destinations";
+module.exports.AIRLINES_COLLECTION_NAME = "airlines";
+module.exports.CLASS_TICKET_TYPES_COLLECTION_NAME = "class_ticket_types";
+module.exports.COMPLAINT_STATUS_TYPES_COLLECTION_NAME = "complaint_status_types";
+module.exports.COMPLAINTS_COLLECTION_NAME = "complaints";
+module.exports.USERS_COLLECTION_NAME = "users";
+module.exports.SETTINGS = "settings"
