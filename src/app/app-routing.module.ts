@@ -10,6 +10,8 @@ import { AddComplainComponent } from './complains/addComplain/addComplain.compon
 import { FlightComponent } from './flight-module/flight/flight.component';
 import { LoginComponent } from './login/login/login.component';
 import { RegisterComponent } from './login/register/register.component';
+import { FlightHistoryComponent } from './flight-module/flightHistory/flightHistory.component';
+import { UsersTableComponent } from './login/UsersTable/UsersTable.component';
 
 
 const routes: Routes = [{ path: 'newFlights', component: NewFlightsComponent, pathMatch: 'full' },
@@ -20,6 +22,8 @@ const routes: Routes = [{ path: 'newFlights', component: NewFlightsComponent, pa
 { path: 'complains', component: ComplainComponent, pathMatch: 'full' },
 { path: 'AddComplain', component: AddComplainComponent, pathMatch: 'full' },
 { path: 'flight', component: FlightComponent, pathMatch: 'full' },
+{ path: 'flightHistory', component: FlightHistoryComponent, pathMatch: 'full' },
+{ path: 'UsersTable', component: UsersTableComponent, pathMatch: 'full' },
 { path: 'login', component: LoginComponent, pathMatch: 'full' },
 { path: 'register', component: RegisterComponent, pathMatch: 'full' }];
 

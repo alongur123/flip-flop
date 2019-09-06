@@ -5,6 +5,8 @@ import { RegisterComponent } from './register/register.component';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { MatFormFieldModule, MatOptionModule, MatSelectModule, MatInputModule, MatCardModule, MatCheckboxModule } from '@angular/material';
 import { RouterModule } from '@angular/router';
+import { UsersTableComponent } from './UsersTable/UsersTable.component';
+import {HttpClientModule} from '@angular/common/http';
 
 @NgModule({
   imports: [
@@ -17,8 +19,9 @@ import { RouterModule } from '@angular/router';
     MatInputModule,
     MatCardModule,
     MatCheckboxModule,
-    RouterModule
+    RouterModule,
+    HttpClientModule
   ],
-  declarations: [LoginComponent, RegisterComponent]
+  declarations: [LoginComponent, RegisterComponent, UsersTableComponent]
 })
 export class LoginModuleModule { }

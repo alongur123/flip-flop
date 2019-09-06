@@ -20,6 +20,7 @@
       <input matInput type="password" class="form-control" placeholder="Confirm password"
         formControlName="ConfirmPassword">      
     </mat-form-field>
+    <mat-error *ngIf="errorMessage">error in {{errorMessage}}</mat-error>
     <br>
     <button type="submit" class="btn btn-success">save</button>
     <button (click)="reset()" style="margin-left: 10px;" class="btn btn-danger">Reset</button>

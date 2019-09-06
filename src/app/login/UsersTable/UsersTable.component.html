@@ -1,0 +1,24 @@
+<div>
+    <section>
+    <table class="table">
+      <thead>
+      <tr>
+        <th>first name</th>
+        <th>last name</th>
+        <th>password</th>
+        <th>is admin</th>      
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let user of Users">
+        <td>{{user.firstName}}</td>
+        <td>{{user.lastName}}</td>
+        <td>{{user.Password}}</td>
+        <td>{{user.isAdmin}}</td>
+        <td><button (click)="delete(user)">delete</button></td>
+      </tr>
+    </tbody>
+    </table>
+  </section>
+  </div>
