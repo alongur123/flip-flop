@@ -49,6 +49,8 @@ const GET_ALL_COMPLAINT_STATUSES_TYPE=require("./messages_type/commands").GET_AL
 const GET_ALL_COMPLAINTS=require("./messages_type/commands").GET_ALL_COMPLAINTS;
 const GET_ALL_USERS=require("./messages_type/commands").GET_ALL_USERS;
 const GROUPBY_DESTINATION = require("./messages_type/commands").GROUPBY_DESTINATION;
+const GROUPBY_BUYER = require("./messages_type/commands").GROUPBY_BUYER;
+
 
 const LOGIN = require("./messages_type/commands").LOGIN;
 
@@ -105,6 +107,8 @@ const TEL_GET_ALL_COMPLAINT_STATUSES_TYPE= require("./messages_type/telemetries"
 const TEL_GET_ALL_COMPLAINTS= require("./messages_type/telemetries").TEL_GET_ALL_COMPLAINTS;
 const TEL_GET_ALL_USERS= require("./messages_type/telemetries").TEL_GET_ALL_USERS;
 const TEL_GROUPBY_DESTINATION =require("./messages_type/telemetries").TEL_GROUPBY_DESTINATION;
+const TEL_GROUPBY_BUYER =require("./messages_type/telemetries").TEL_GROUPBY_BUYER;
+
 
 const TEL_LOGIN = require("./messages_type/telemetries").TEL_LOGIN;
 
@@ -162,6 +166,7 @@ const getAllComplaints =  require("./functions/getAll").getAllComplaints
 const getAllUsers = require("./functions/getAll").getAllUsers
 
 const groupByDestination = require("./functions/groupBy").groupByDestination
+const groupByBuyer = require("./functions/groupBy").groupByBuyer
 
 const login = require("./functions/login").login
 
@@ -502,6 +507,15 @@ module.exports.signSocketEvents = function signSocketEvents(dbObject,socket)
           socket.emit(TEL_GROUPBY_DESTINATION,res)
       })
       })
+
+      socket.on(GROUPBY_BUYER,async function(data){
+        groupByBuyer(dbObject,data).then((res)=>{
+          //socket.emit(TEL_GROUPBY_BUYER,res)
+          console.log(res)
+      })
+      })
+
+      
 
 
         
