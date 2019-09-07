@@ -15,7 +15,8 @@
       <mat-form-field style="width: 60%;">
         <input matInput type="password" class="form-control" placeholder="password" [(ngModel)]="user.Password"
           formControlName="Password">
-      </mat-form-field>    
+      </mat-form-field>  
+      <mat-error *ngIf="errorMessage">error in {{errorMessage}}</mat-error>
       <br>
       <button type="submit" class="btn btn-success" style="margin-right: 20px">Log In</button>      
       <a class="btn btn-primary" [routerLink]="['/register']">register</a>

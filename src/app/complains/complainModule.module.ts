@@ -4,6 +4,7 @@ import { AddComplainComponent } from './addComplain/addComplain.component';
 import { ComplainComponent } from './complain/complain.component';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { MatFormFieldModule, MatInputModule } from '@angular/material';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   imports: [
@@ -11,7 +12,8 @@ import { MatFormFieldModule, MatInputModule } from '@angular/material';
     ReactiveFormsModule,
     MatFormFieldModule,
     FormsModule,
-    MatInputModule
+    MatInputModule,
+    HttpClientModule
   ],
   declarations: [ComplainComponent, AddComplainComponent],
   exports: [ComplainComponent, AddComplainComponent]

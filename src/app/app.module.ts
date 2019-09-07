@@ -11,13 +11,15 @@ import { FlightModuleModule } from "./flight-module/flight-module.module";
 import { ContactComponent } from './contact/contact.component';
 import { ComplainModuleModule } from './complains/complainModule.module';
 import { LoginModuleModule } from './login/loginModule.module';
+import { NavbarComponent } from './navbar/navbar.component';
 
 @NgModule({
    declarations: [
       AppComponent,
       AboutComponent,
       HomeComponent,
-      ContactComponent
+      ContactComponent,
+      NavbarComponent
    ],
    imports: [
       BrowserModule,

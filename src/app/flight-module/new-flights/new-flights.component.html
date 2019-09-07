@@ -27,7 +27,9 @@
       <mat-select placeholder="department" [(ngModel)]="flight.department" formControlName="department">
         <mat-option *ngFor="let item of DeparmentKeys()" value="{{item}}">{{item}}</mat-option>
       </mat-select>
+      
     </mat-form-field>
+    <mat-error *ngIf="errorMessage">error in {{errorMessage}}</mat-error>
     <br>
     <button type="submit" class="btn btn-success">Submit</button>
     <button (click)="onReset()" style="margin-left: 10px;" class="btn btn-danger">Reset</button>

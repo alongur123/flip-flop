@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Complain } from 'src/models/complain';
+import { ComplainService } from '../complain.service';
 
 @Component({
   selector: 'app-addComplain',
@@ -10,7 +11,7 @@ import { Complain } from 'src/models/complain';
 export class AddComplainComponent implements OnInit {
   complain: Complain = new Complain({});
   complainForm: FormGroup;
-  constructor() { }
+  constructor(private complainService: ComplainService) { }
 
   ngOnInit() {
     this.complainForm = new FormGroup({
@@ -18,6 +19,8 @@ export class AddComplainComponent implements OnInit {
     });
   }
   onSubmit() {
-    this.complainForm.reset();
+    if (this.complainForm.valid) {
+      this.complainForm.reset();
+    }
   }
 }

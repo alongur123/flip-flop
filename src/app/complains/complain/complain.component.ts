@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Complain } from 'src/models/complain';
 import { User } from 'src/models/user';
+import { ComplainService } from '../complain.service';
 
 @Component({
   selector: 'app-complain',
@@ -13,7 +14,7 @@ export class ComplainComponent implements OnInit {
   new Complain({ user: new User({ firstName: "alon", lastName: "gur" }), content: "aaaaaaaa", comment: "bbbbbb" }),
   new Complain({ user: new User({ firstName: "alon", lastName: "gur" }), content: "aaaaaaaa", comment: "bbbbbb" })];
 
-  constructor() { }
+  constructor(private complainService: ComplainService) { }
 
   ngOnInit() {
     console.log(this.complains);

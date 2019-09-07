@@ -10,7 +10,7 @@ import { FlightService } from '../flight.service';
 export class FlightComponent implements OnInit {
 
   @Input() flight: Flight;
-  constructor(private flightService:FlightService) { }
+  constructor(private flightService: FlightService) { }
 
   ngOnInit() {
     this.flight = this.flightService.currentFlight;

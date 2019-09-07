@@ -6,13 +6,17 @@ import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { MatFormFieldModule, MatOptionModule, MatSelectModule, MatInputModule, MatCardModule, MatCheckboxModule } from '@angular/material';
 import { FlightComponent } from './flight/flight.component';
 import { RouterModule } from '@angular/router';
+import { FlightHistoryComponent } from './flightHistory/flightHistory.component';
+import { HttpClientModule } from '@angular/common/http';
+import { FacebookModule } from 'ngx-facebook';
 
 
 @NgModule({
   declarations: [
     NewFlightsComponent,
     FlightsComponent,
-    FlightComponent],
+    FlightComponent,
+  FlightHistoryComponent],
   imports: [
     CommonModule,
     ReactiveFormsModule,
@@ -23,10 +27,12 @@ import { RouterModule } from '@angular/router';
     MatInputModule,
     MatCardModule,
     MatCheckboxModule,
-    RouterModule
-
+    RouterModule,
+    HttpClientModule,
+    FacebookModule.forRoot(),    
   ],
   exports: [NewFlightsComponent,
-    FlightsComponent]
+    FlightsComponent,
+    FlightHistoryComponent]
 })
 export class FlightModuleModule { }
