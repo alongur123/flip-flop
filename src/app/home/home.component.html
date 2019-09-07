@@ -1,3 +1,7 @@
+<div *ngFor="let item of weather">
+  <h3>{{item.cityName}}</h3>
+  <h5>{{item.temp}}</h5>
+</div>
 <div width="500px"><agm-map
   [latitude]="lat"
   [longitude]="lng"

@@ -12,18 +12,20 @@ import { LoginComponent } from './login/login/login.component';
 import { RegisterComponent } from './login/register/register.component';
 import { FlightHistoryComponent } from './flight-module/flightHistory/flightHistory.component';
 import { UsersTableComponent } from './login/UsersTable/UsersTable.component';
+import { logInGuard } from './app.guard';
+import { AdminGuard } from './admin.guard';
 
 
 const routes: Routes = [{ path: 'newFlights', component: NewFlightsComponent, pathMatch: 'full' },
-{ path: 'flights', component: FlightsComponent, pathMatch: 'full' },
+{ path: 'flights', component: FlightsComponent, pathMatch: 'full', canActivate: [logInGuard] },
 { path: 'contact', component: ContactComponent, pathMatch: 'full' },
 { path: '', component: HomeComponent, pathMatch: 'full' },
 { path: 'about', component: AboutComponent, pathMatch: 'full' },
-{ path: 'complains', component: ComplainComponent, pathMatch: 'full' },
-{ path: 'AddComplain', component: AddComplainComponent, pathMatch: 'full' },
-{ path: 'flight', component: FlightComponent, pathMatch: 'full' },
-{ path: 'flightHistory', component: FlightHistoryComponent, pathMatch: 'full' },
-{ path: 'UsersTable', component: UsersTableComponent, pathMatch: 'full' },
+{ path: 'complains', component: ComplainComponent, pathMatch: 'full', canActivate: [logInGuard, AdminGuard] },
+{ path: 'AddComplain', component: AddComplainComponent, pathMatch: 'full', canActivate: [logInGuard] },
+{ path: 'flight', component: FlightComponent, pathMatch: 'full', canActivate: [logInGuard] },
+{ path: 'flightHistory', component: FlightHistoryComponent, pathMatch: 'full', canActivate: [logInGuard, AdminGuard] },
+{ path: 'UsersTable', component: UsersTableComponent, pathMatch: 'full', canActivate: [logInGuard, AdminGuard] },
 { path: 'login', component: LoginComponent, pathMatch: 'full' },
 { path: 'register', component: RegisterComponent, pathMatch: 'full' }];
 

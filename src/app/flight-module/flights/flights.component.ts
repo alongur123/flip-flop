@@ -26,6 +26,7 @@ export class FlightsComponent implements OnInit {
     this.flights.push(a);
     this.flights.push(a);
     this.flights.push(a);
+    this.flightService.getSuggestion();
   }
   clicked(flight) {
     this.flightService.currentFlight = flight;

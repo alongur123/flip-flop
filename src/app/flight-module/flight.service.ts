@@ -4,6 +4,7 @@ import { HttpClient } from '@angular/common/http';
 import { BehaviorSubject } from 'rxjs';
 import { TicketesHistory } from 'src/models/ticketesHistory';
 import { FacebookService, InitParams, UIParams, UIResponse } from 'ngx-facebook';
+import KNN from 'ml-knn';
 
 @Injectable({
   providedIn: 'root'
@@ -13,9 +14,9 @@ export class FlightService {
 
   // private user = new BehaviorSubject(new User({}));
   // public publicUser = this.user.asObservable();
-  private allFlights = new BehaviorSubject([]);
+  private allFlights = new BehaviorSubject<Flight[]>([]);
   public publicAllFlights = this.allFlights.asObservable();
-  private history = new BehaviorSubject([]);
+  private history = new BehaviorSubject<TicketesHistory[]>([]);
   public publicHistory = this.history.asObservable();
 
   url = "";
@@ -62,5 +63,25 @@ export class FlightService {
   //TODO: add targets to new flight form
   getTargets() {
 
+  }
+
+  // Get a suggestion by user history of flight destination and price
+  //TODO: 
+  getSuggestion() {
+    // var dataset = [
+    //   [1, 100],
+    //   [0, 1],
+    //   [1, 1],
+    //   [2, 2],
+    //   [1, 2],
+    //   [2, 50]
+    // ];
+    var dataset = this.history.value.map((x: TicketesHistory) => [x.flight.target.country.idNumber, x.flight.Price]);
+    var predictions = [1, 0, 0, 0, 0, 1];
+    var knn = new KNN(dataset, predictions, { k: 2 });
+    var dataset = [[2, 10]];
+
+    var ans = knn.predict(dataset);
+    console.log(ans);
   }
 }
