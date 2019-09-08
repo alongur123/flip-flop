@@ -2,6 +2,10 @@ import { Component, OnInit } from '@angular/core';
 import { User } from 'src/models/user';
 import { FormGroup, FormControl, Validators, ValidationErrors } from '@angular/forms';
 import { UserService } from '../user.service';
+import { socket } from '../../socket/socket';
+import * as tel from '../../socket/telemetries';
+import { UserType } from 'src/models/userType.enum';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -11,17 +15,26 @@ import { UserService } from '../user.service';
 export class LoginComponent implements OnInit {
   user: User = new User({});
   userForm: FormGroup;
-  errorMessage: string
-  constructor(private userService: UserService) { }
+  errorMessage: string;
+  constructor(private userService: UserService, private router: Router) { }
 
   ngOnInit() {
     this.userForm = new FormGroup({
-      FirstName: new FormControl(this.user.firstName, [Validators.required]),
-      LastName: new FormControl(this.user.lastName, [Validators.required]),
+      username: new FormControl(this.user.username, [Validators.required]),
       Password: new FormControl(this.user.Password, [Validators.required, Validators.min(6)])
     });
+
+    socket.on(tel.TEL_LOGIN, (res) => {
+      if (res !== null) {
+        console.log(res.isAdmin);
+        //this.userService.changeType(res.isAdmin ? UserType.Admin : UserType.notAdmin);
+        this.userService.setUser(res);
+      }
+      else {
+        alert("user name or password incorrect");
+      }
+    });
   }
-  //TODO: logIn check server side
   onSubmit() {
     // this.userForm.reset();
     if (!this.userForm.valid) {
@@ -37,5 +50,7 @@ export class LoginComponent implements OnInit {
 
       return;
     }
+    this.userService.logIn(this.user);
+
   }
 }

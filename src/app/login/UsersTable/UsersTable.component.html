@@ -1,17 +1,17 @@
 <div>
-    <section>
-    <table class="table">
-      <thead>
+
+  <table class="table">
+    <thead>
       <tr>
         <th>first name</th>
         <th>last name</th>
         <th>password</th>
-        <th>is admin</th>      
+        <th>is admin</th>
         <th></th>
       </tr>
     </thead>
     <tbody>
-      <tr *ngFor="let user of Users">
+      <tr *ngFor="let user of publicAllUsers | async">
         <td>{{user.firstName}}</td>
         <td>{{user.lastName}}</td>
         <td>{{user.Password}}</td>
@@ -19,6 +19,6 @@
         <td><button (click)="delete(user)">delete</button></td>
       </tr>
     </tbody>
-    </table>
-  </section>
-  </div>
+  </table>
+
+</div>

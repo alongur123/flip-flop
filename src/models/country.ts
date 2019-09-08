@@ -1,9 +1,9 @@
 export class Country {
-    _id: string;
+    id: number;
     name: string;
     idNumber: number;
     constructor(country: any) {
-        this._id = country._id || "";
+        this.id = country.id || 0;
         this.name = country.name || "";
         this.idNumber = country.idNumber || 0;
     }

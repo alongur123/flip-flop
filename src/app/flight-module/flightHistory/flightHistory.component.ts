@@ -26,6 +26,7 @@ export class FlightHistoryComponent implements OnInit {
 
   ngOnInit() {
     this.flightService.publicHistory.subscribe(x => {
+      console.log(x);
       this.allTickets = x;
       this.FilterTickets = x;
     });

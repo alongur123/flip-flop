@@ -11,5 +11,6 @@
     <a class="Mynavbar" *ngIf="user !== notConnected" [routerLink]="['/AddComplain']">complain</a>
     <a class="Mynavbar" *ngIf="user === notConnected" [routerLink]="['/register']">register</a>
     <a class="Mynavbar" *ngIf="user === notConnected" [routerLink]="['/login']">logIn</a>
+    <button class="Mynavbar" *ngIf="user !== notConnected" (click)="logOut()">log out</button>
   </nav>
-  </div>  
+</div>

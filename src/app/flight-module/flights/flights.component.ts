@@ -15,18 +15,23 @@ export class FlightsComponent implements OnInit {
   constructor(private flightService: FlightService, private router: Router) { }
 
   ngOnInit() {
-    let a = new Flight({
-      FlightNumber: "aa", target: new Target({
-        cityName: "new york",
-        country: new Country({ name: "usa" })
-      })
+    // let a = new Flight({
+    //   FlightNumber: "aa", target: new Target({
+    //     cityName: "new york",
+    //     country: new Country({ name: "usa" })
+    //   })
+    // });
+    // this.flights.push(a);
+    // this.flights.push(a);
+    // this.flights.push(a);
+    // this.flights.push(a);
+    // this.flights.push(a);
+    // this.flightService.getSuggestion();
+    this.flightService.publicAllFlights.subscribe(x => {
+    this.flights = x;
+    console.log(this.flights);
     });
-    this.flights.push(a);
-    this.flights.push(a);
-    this.flights.push(a);
-    this.flights.push(a);
-    this.flights.push(a);
-    this.flightService.getSuggestion();
+    this.flightService.getAll();
   }
   clicked(flight) {
     this.flightService.currentFlight = flight;

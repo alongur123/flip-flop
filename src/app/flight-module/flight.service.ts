@@ -5,6 +5,7 @@ import { BehaviorSubject } from 'rxjs';
 import { TicketesHistory } from 'src/models/ticketesHistory';
 import { FacebookService, InitParams, UIParams, UIResponse } from 'ngx-facebook';
 import KNN from 'ml-knn';
+import { socket } from '../socket/socket';
 
 @Injectable({
   providedIn: 'root'
@@ -23,6 +24,22 @@ export class FlightService {
   urlHistory = "";
 
   constructor(private Http: HttpClient, private fb: FacebookService) {
+    socket.on("TEL_GET_ALL_FILGHT_TICKETS_DETAILS", (res) => {
+      let users = res.map(x => new Flight(x));
+      console.log(users);
+      this.allFlights.next(users);
+    });
+    socket.on("TEL_GET_ALL_HISTORIES_DETAILS", (res) => {
+      let users = res.map(x => new TicketesHistory(x));
+      console.log(users);
+      this.history.next(users);
+    });
+    // socket.on("TEL_GET_ALL_USERS", (res) => {
+    //   let users = res.map(x => new User(x));
+    //   console.log(users);
+    //   this.allUsers.next(users);
+    // });
+
     let initParams: InitParams = {
       appId: '1450976715027167',
       xfbml: true,
@@ -45,7 +62,8 @@ export class FlightService {
 
   }
   getAll() {
-    this.Http.get<Flight[]>(this.url).subscribe(x => this.allFlights.next(x));
+    socket.emit("GET_ALL_FILGHT_TICKETS_DETAILS", {});
+    // this.Http.get<Flight[]>(this.url).subscribe(x => this.allFlights.next(x));
   }
   addFlight(wantedFlight: Flight) {
     this.Http.post<Flight>(this.url, wantedFlight).subscribe(x => this.allFlights.next(this.allFlights.value.concat([x])));
@@ -58,7 +76,9 @@ export class FlightService {
     // this.Http.put<Flight>(this.url, wantedFlight).subscribe(x => this.allFlights.next(x));
   }
   getHistory() {
-    this.Http.get<TicketesHistory[]>(this.urlHistory).subscribe(x => this.history.next(this.history.value.concat(x)));
+    socket.emit("GET_ALL_HISTORIES_DETAILS", {});
+
+  //  this.Http.get<TicketesHistory[]>(this.urlHistory).subscribe(x => this.history.next(this.history.value.concat(x)));
   }
   //TODO: add targets to new flight form
   getTargets() {

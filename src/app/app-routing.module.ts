@@ -14,6 +14,7 @@ import { FlightHistoryComponent } from './flight-module/flightHistory/flightHist
 import { UsersTableComponent } from './login/UsersTable/UsersTable.component';
 import { logInGuard } from './app.guard';
 import { AdminGuard } from './admin.guard';
+import { notAdminGuard } from './notAdmin.guard'
 
 
 const routes: Routes = [{ path: 'newFlights', component: NewFlightsComponent, pathMatch: 'full' },
@@ -26,8 +27,8 @@ const routes: Routes = [{ path: 'newFlights', component: NewFlightsComponent, pa
 { path: 'flight', component: FlightComponent, pathMatch: 'full', canActivate: [logInGuard] },
 { path: 'flightHistory', component: FlightHistoryComponent, pathMatch: 'full', canActivate: [logInGuard, AdminGuard] },
 { path: 'UsersTable', component: UsersTableComponent, pathMatch: 'full', canActivate: [logInGuard, AdminGuard] },
-{ path: 'login', component: LoginComponent, pathMatch: 'full' },
-{ path: 'register', component: RegisterComponent, pathMatch: 'full' }];
+{ path: 'login', component: LoginComponent, pathMatch: 'full', canActivate: [notAdminGuard] },
+{ path: 'register', component: RegisterComponent, pathMatch: 'full', canActivate: [notAdminGuard] }];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],

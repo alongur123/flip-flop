@@ -11,12 +11,12 @@
     </tr>
   </thead>
   <tbody>
-    <tr *ngFor="let complain of complains">
+    <tr *ngFor="let complain of publicAllComplains | async">
       <td>{{complain.status}}</td>
       <td>{{complain.user.firstName}} {{complain.user.lastName}}</td>
       <td>{{complain.comment}}</td>
       <td>{{complain.content}}</td>
-      <td><button (click)="edit(complain)">edit</button> | <button (click)="delete(complain)">delete</button></td>
+      <td><button (click)="edit(complain)">check</button> | <button (click)="delete(complain)">delete</button></td>
     </tr>
   </tbody>
   </table>

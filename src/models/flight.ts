@@ -4,7 +4,7 @@ import * as moment from 'moment';
 import { User } from './user';
 
 export class Flight {
-    _id: string;
+    id: number;
     date: Date;
     FlightNumber: number;
     cancelFee: number;
@@ -16,7 +16,7 @@ export class Flight {
     IsSold: boolean;
     user: User;
     constructor(flight: any) {
-        this._id = flight._id || "";
+        this.id = flight.id || 0;
         this.date = flight.date || moment().format("DD/MM/YYYY");
         this.FlightNumber = flight.FlightNumber || "";
         this.cancelFee = flight.cancelFee || 0;
