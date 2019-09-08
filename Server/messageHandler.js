@@ -49,6 +49,8 @@ const GET_ALL_COMPLAINT_STATUSES_TYPE=require("./messages_type/commands").GET_AL
 const GET_ALL_COMPLAINTS=require("./messages_type/commands").GET_ALL_COMPLAINTS;
 const GET_ALL_USERS=require("./messages_type/commands").GET_ALL_USERS;
 const GROUPBY_DESTINATION = require("./messages_type/commands").GROUPBY_DESTINATION;
+const GROUPBY_BUYER = require("./messages_type/commands").GROUPBY_BUYER;
+
 
 const LOGIN = require("./messages_type/commands").LOGIN;
 
@@ -105,6 +107,8 @@ const TEL_GET_ALL_COMPLAINT_STATUSES_TYPE= require("./messages_type/telemetries"
 const TEL_GET_ALL_COMPLAINTS= require("./messages_type/telemetries").TEL_GET_ALL_COMPLAINTS;
 const TEL_GET_ALL_USERS= require("./messages_type/telemetries").TEL_GET_ALL_USERS;
 const TEL_GROUPBY_DESTINATION =require("./messages_type/telemetries").TEL_GROUPBY_DESTINATION;
+const TEL_GROUPBY_BUYER =require("./messages_type/telemetries").TEL_GROUPBY_BUYER;
+
 
 const TEL_LOGIN = require("./messages_type/telemetries").TEL_LOGIN;
 
@@ -162,6 +166,7 @@ const getAllComplaints =  require("./functions/getAll").getAllComplaints
 const getAllUsers = require("./functions/getAll").getAllUsers
 
 const groupByDestination = require("./functions/groupBy").groupByDestination
+const groupByBuyer = require("./functions/groupBy").groupByBuyer
 
 const login = require("./functions/login").login
 
@@ -173,24 +178,28 @@ module.exports.signSocketEvents = function signSocketEvents(dbObject,socket)
     // Get
     socket.on(GET_FILGHT_TICKET_DETAILS,async function(data){
     getFlightTicketDetails(dbObject,data).then((res)=>{
+		console.log(res)
         socket.emit(TEL_GET_FILGHT_TICKET_DETAILS,res)
     })
     })
 
     socket.on(GET_HISTORY_DETAILS,async function(data){
     getHistoryDetailes(dbObject,data).then((res)=>{
+		console.log(res)
         socket.emit(TEL_GET_HISTORY_DETAILS,res)
     })
     })
 
     socket.on(GET_CLASS_TICKET_TYPE,async function(data){
     getClassesTicketType(dbObject,data).then((res)=>{
+		console.log(res)
         socket.emit(TEL_GET_CLASS_TICKET_TYPE,res)
     })
     })
 
     socket.on(GET_AIRLINE_DETAILS,async function(data){
     getAirlineDetails(dbObject,data).then((res)=>{
+		console.log(res)
         socket.emit(TEL_GET_AIRLINE_DETAILS,res)
     })
     })
@@ -204,24 +213,28 @@ module.exports.signSocketEvents = function signSocketEvents(dbObject,socket)
   
     socket.on(GET_DESTINATION_DETAILS,async function(data){
     getDestinationDetails(dbObject,data).then((res)=>{
+		console.log(res)
         socket.emit(TEL_GET_DESTINATION_DETAILS,res)
     })
     })
                               
     socket.on(GET_COMPLAINT_STATUS_TYPE,async function(data){
     getComplaintStatusType(dbObject,data).then((res)=>{
+		console.log(res)
         socket.emit(TEL_GET_COMPLAINT_STATUS_TYPE,res)
     })
     })
 
     socket.on(GET_COMPLAINT,async function(data){
     getComplaint(dbObject,data).then((res)=>{
+		console.log(res)
         socket.emit(TEL_GET_COMPLAINT,res)
     })
     })
         
     socket.on(GET_USER,async function(data){
     getUser(dbObject,data).then((res)=>{
+		console.log(res)
         socket.emit(TEL_GET_USER,res)
     })
     })
@@ -436,54 +449,63 @@ module.exports.signSocketEvents = function signSocketEvents(dbObject,socket)
     // Get all 
     socket.on(GET_ALL_FILGHT_TICKETS_DETAILS,async function(data){
     getAllFlightTicketsDetails(dbObject,data).then((res)=>{
+		console.log(res)
         socket.emit(TEL_GET_ALL_FILGHT_TICKETS_DETAILS,res)
     })
     })
 
     socket.on(GET_ALL_HISTORIES_DETAILS,async function(data){
     getAllHistoriesDetailes(dbObject,data).then((res)=>{
+		console.log(res)
         socket.emit(TEL_GET_ALL_HISTORIES_DETAILS,res)
     })
     })
 
     socket.on(GET_ALL_CLASS_TICKET_TYPES,async function(data){
     getAllClassesTicketTypes(dbObject,data).then((res)=>{
-        socket.emit(TEL_GET_ALL_CLASS_TICKET_TYPES,res)
+		console.log(res)
+	socket.emit(TEL_GET_ALL_CLASS_TICKET_TYPES,res)
     })
     })
 
     socket.on(GET_ALL_AIRLINES_DETAILS,async function(data){
     getAllAirlinesDetails(dbObject,data).then((res)=>{
+		console.log(res)
         socket.emit(TEL_GET_ALL_AIRLINES_DETAILS,res)
     })
     })
 
     socket.on(GET_ALL_COUNTRIES_DETAILS,async function(data){
     getAllCountriesDetails(dbObject,data).then((res)=>{
+		console.log(res)
         socket.emit(TEL_GET_ALL_COUNTRIES_DETAILS,res)
     })
     })
 
     socket.on(GET_ALL_DESTINATIONS_DETAILS,async function(data){
         getAllDestinationsDetails(dbObject,data).then((res)=>{
+			console.log(res)
             socket.emit(TEL_GET_ALL_DESTINATIONS_DETAILS,res)
         })
     })
 
     socket.on(GET_ALL_COMPLAINT_STATUSES_TYPE,async function(data){
     getAllComplaintStatusTypes(dbObject,data).then((res)=>{
+		console.log(res)
         socket.emit(TEL_GET_ALL_COMPLAINT_STATUSES_TYPE,res)
     })
     })
 
     socket.on(GET_ALL_COMPLAINTS,async function(data){
     getAllComplaints(dbObject,data).then((res)=>{
+		console.log(res)
         socket.emit(TEL_GET_ALL_COMPLAINTS,res)
     })
     })
 
     socket.on(GET_ALL_USERS,async function(data){
     getAllUsers(dbObject,data).then((res)=>{
+		console.log(res)
         socket.emit(TEL_GET_ALL_USERS,res)
        
     })
@@ -502,6 +524,15 @@ module.exports.signSocketEvents = function signSocketEvents(dbObject,socket)
           socket.emit(TEL_GROUPBY_DESTINATION,res)
       })
       })
+
+      socket.on(GROUPBY_BUYER,async function(data){
+        groupByBuyer(dbObject,data).then((res)=>{
+          socket.emit(TEL_GROUPBY_BUYER,res)
+          console.log(res)
+      })
+      })
+
+      
 
 
         

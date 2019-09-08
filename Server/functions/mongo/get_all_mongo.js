@@ -15,7 +15,7 @@ module.exports.getAllFlightTicketsDetails = async function getAllFlightTicketsDe
 {
     let promise = new Promise((resolve,reject)=>{
         let flightTicketsCollection = getCollection(dbObject,FLIGHT_TICKETS_COLLECTION_NAME);
-        flightTicketsCollection.findOne({},{"_id":0}).toArray(function(err,result){
+        flightTicketsCollection.find({},{"_id":0}).toArray(function(err,result){
             resolve(result)
         })
  });
@@ -28,7 +28,7 @@ module.exports.getAllHistoriesDetailes = async function getAllHistoriesDetailes(
     let promise = new Promise((resolve,reject)=>{
 
         let historyCollection = getCollection(dbObject,HISTORY_COLLECTION_NAME);
-        historyCollection.findOne({},{"_id":0}).toArray(function(err,result){
+        historyCollection.find({},{"_id":0}).toArray(function(err,result){
             resolve(result)
         })
  });
@@ -43,7 +43,7 @@ module.exports.getAllClassesTicketTypes = async function getAllClassesTicketType
     let promise = new Promise((resolve,reject)=>{
 
         let classesTicketTypeCollection = getCollection(dbObject,CLASS_TICKET_TYPES_COLLECTION_NAME);
-        classesTicketTypeCollection.findOne({},{"_id":0}).toArray(function(err,result){
+        classesTicketTypeCollection.find({},{"_id":0}).toArray(function(err,result){
             resolve(result)
         })
  });
@@ -57,7 +57,7 @@ module.exports.getAllAirlinesDetails = async function getAllAirlinesDetails(dbOb
     let promise = new Promise((resolve,reject)=>{
 
         let airlinesCollecrion = getCollection(dbObject,AIRLINES_COLLECTION_NAME);
-        airlinesCollecrion.findOne({},{"_id":0}).toArray(function(err,result){
+        airlinesCollecrion.find({},{"_id":0}).toArray(function(err,result){
             resolve(result)
         })
  });
@@ -72,7 +72,7 @@ module.exports.getAllCountriesDetails = async function getAllCountriesDetails(db
     let promise = new Promise((resolve,reject)=>{
 
         let countriesCollection = getCollection(dbObject,COUNTRIES_COLLECTION_NAME);
-        countriesCollection.findOne({},{"_id":0}).toArray(function(err,result){
+        countriesCollection.find({},{"_id":0}).toArray(function(err,result){
             resolve(result)
         })
 
@@ -87,7 +87,7 @@ module.exports.getAllDestinationsDetails = async function getAllDestinationsDeta
     let promise = new Promise((resolve,reject)=>{
 
         let destinationsCollection = getCollection(dbObject,DESTINATION_COLLECTION_NAME);
-        destinationsCollection.findOne({},{"_id":0}).toArray(function(err,result){
+        destinationsCollection.find({},{"_id":0}).toArray(function(err,result){
             resolve(result)
         })
 
@@ -105,7 +105,7 @@ module.exports.getAllComplaintStatusTypes = async function getAllComplaintStatus
 
     console.log(COMPLAINT_STATUS_TYPES_COLLECTION_NAME)
     let complaintsStatusCollection = getCollection(dbObject,COMPLAINT_STATUS_TYPES_COLLECTION_NAME);
-    complaintsStatusCollection.findOne({},{"_id":0}).toArray(function(err,result){
+    complaintsStatusCollection.find({},{"_id":0}).toArray(function(err,result){
         resolve(result)
     })
 });
@@ -119,7 +119,7 @@ module.exports.getAllComplaints = async function getAllComplaints(dbObject,data)
     let promise = new Promise((resolve,reject)=>{
 
         let complaintsCollection = getCollection(dbObject,COMPLAINTS_COLLECTION_NAME);
-        complaintsCollection.findOne({},{"_id":0}).toArray(function(err,result){
+        complaintsCollection.find({},{"_id":0}).toArray(function(err,result){
             resolve(result)
         })
 
