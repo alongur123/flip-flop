@@ -20,6 +20,7 @@ export class AddComplainComponent implements OnInit {
   }
   onSubmit() {
     if (this.complainForm.valid) {
+      this.complainService.addCompalin(this.complain);
       this.complainForm.reset();
     }
   }
