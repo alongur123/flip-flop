@@ -510,7 +510,7 @@ module.exports.signSocketEvents = function signSocketEvents(dbObject,socket)
 
       socket.on(GROUPBY_BUYER,async function(data){
         groupByBuyer(dbObject,data).then((res)=>{
-          //socket.emit(TEL_GROUPBY_BUYER,res)
+          socket.emit(TEL_GROUPBY_BUYER,res)
           console.log(res)
       })
       })
